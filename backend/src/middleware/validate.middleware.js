@@ -17,7 +17,6 @@ const registerUserValidation = [
 
     body('password').notEmpty().withMessage('Password is required'),
 
-    
     body('fullName.firstName').notEmpty().withMessage('First name is required')
     .isLength({max:50}).withMessage('First name cannot exceed 50 characters'),
 
@@ -25,7 +24,31 @@ const registerUserValidation = [
     
   validate
 ]
+const loginUserValidation = [
+  body().custom((value, { req }) => {
+    if (!req.body.username && !req.body.email) {
+      throw new Error('Either username or email is required')
+    }
+    return true
+  }),
+
+  body('username')
+    .optional()
+    .isLength({ min: 3, max: 30 })
+    .withMessage('Username must be between 3 and 30 characters long'),
+
+  body('email')
+    .optional()
+    .isEmail()
+    .withMessage('Please enter a valid email address'),
+
+  body('password')
+    .notEmpty()
+    .withMessage('Password is required'),
+]
+
 
 module.exports = {
-    registerUserValidation
+    registerUserValidation,
+    loginUserValidation
 }
