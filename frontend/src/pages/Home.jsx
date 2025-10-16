@@ -73,34 +73,35 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 flex justify-center items-center bg-black/50 z-50">
-          <div className="bg-white rounded-2xl p-8 w-96 relative">
-            <button
-              onClick={() => setIsModalOpen(false)}
-              className="absolute top-4 right-4 text-gray-500 font-bold text-xl"
-            >
-              &times;
-            </button>
+     {isModalOpen && (
+  <div
+    className="fixed inset-0 flex justify-center items-center bg-black/50 backdrop-blur-sm z-50 transition-opacity duration-300 ease-in-out opacity-100"
+    onClick={() => setIsModalOpen(false)}
+  >
+    <div
+      className="bg-[#000934c7] rounded-2xl p-8 w-116  relative transform transition-transform duration-300 ease-in-out scale-100"
+      onClick={(e) => e.stopPropagation()}
+    >
+ 
 
-            {modalType === 'register' && <Register />}
-            {modalType === 'login' && <Login onClose={() => setIsModalOpen(false)} />}
+      {modalType === 'register' && <Register />}
+      {modalType === 'login' && <Login onClose={() => setIsModalOpen(false)} />}
 
-            <p className="text-sm text-gray-500 mt-4 text-center">
-              {modalType === 'register' ? (
-                <>
-                  Already have an account? <span className="text-blue-600 cursor-pointer" onClick={toggleModalType}>Login</span>
-                </>
-              ) : (
-                <>
-                  Don't have an account? <span className="text-blue-600 cursor-pointer" onClick={toggleModalType}>Register</span>
-                </>
-              )}
-            </p>
-          </div>
-        </div>
-      )}
+      <p className="text-sm text-gray-500 mt-4 text-center">
+        {modalType === 'register' ? (
+          <>
+            Already have an account? <span className="text-blue-600 cursor-pointer" onClick={toggleModalType}>Login</span>
+          </>
+        ) : (
+          <>
+            Don't have an account? <span className="text-blue-600 cursor-pointer" onClick={toggleModalType}>Register</span>
+          </>
+        )}
+      </p>
+    </div>
+  </div>
+)}
+
     </>
   );
 };
