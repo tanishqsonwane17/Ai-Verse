@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 
 const Nav = () => {
   return (
@@ -10,7 +11,7 @@ const Nav = () => {
             <li className='py-1 px-8 bg-[#000f5279] cursor-pointer hover:bg-[#000F52] rounded-3xl'>Platform</li>
             <li className='py-1 px-8 bg-[#000f5279] cursor-pointer hover:bg-[#000F52] rounded-3xl'>About Us</li>
             <li className='py-1 px-8 bg-[#000F5279] cursor-pointer hover:bg-[#000F52] rounded-3xl'>Services</li>
-            <li className='py-1 px-8 bg-[#000F5279] cursor-pointer hover:bg-[#000F52] rounded-3xl'>Metaverse</li>
+            <Link to='/metaverse'><li className='py-1 px-8 bg-[#000F5279] cursor-pointer hover:bg-[#000F52] rounded-3xl'>Metaverse</li></Link>
             <li className='py-1 px-8 bg-[#000F5279] cursor-pointer hover:bg-[#000F52] rounded-3xl'>Contact</li>
            </ul>
         </div>

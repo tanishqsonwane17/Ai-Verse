@@ -32,7 +32,7 @@ const Login = ({ onClose }) => {
       const response = await axios.post(
         'http://localhost:3000/api/auth/login',
         payload,
-        { headers: { 'Content-Type': 'application/json' } }
+        { headers: { 'Content-Type': 'application/json' },withCredentials: true }
       );
       console.log('Login Response:', response.data);
       alert('Login Successful!');

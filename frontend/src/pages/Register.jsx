@@ -44,7 +44,7 @@ const Register = () => {
       const response = await axios.post(
         'http://localhost:3000/api/auth/register',
         submitData,
-        { headers: { 'Content-Type': 'application/json' } }
+        { headers: { 'Content-Type': 'application/json' },withCredentials: true }
       );
       console.log('Server Response:', response.data);
       alert('Registration Successful!');
