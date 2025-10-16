@@ -1,15 +1,17 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router';
-const Metaverse = () => {
-  const navigate = useNavigate();
+ 
 
+const Logout = () => {
+  const navigate = useNavigate();
   useEffect(() => {
-    axios.get('http://localhost:3000/api/auth/metaverse', {
+    axios.get('http://localhost:3000/api/auth/logout', {
       withCredentials: true
     })
     .then((res) => {
-      console.log(" Metaverse Data:", res.data);
+      console.log(" Logout Data:", res.data);
+        navigate('/');
     })
     .catch((err) => {
       console.error(" Access denied:", err.response?.data || err);
@@ -17,12 +19,10 @@ const Metaverse = () => {
        alert('Access Denied! Please login first.');
     });
   }, []); 
-
   return (
-    <div className=" text-center text-2xl mt-10">
-       Welcome to the Metaverse
-    </div>
-  );
+    <>
+</>
+  )
 }
 
-export default Metaverse;
+export default Logout

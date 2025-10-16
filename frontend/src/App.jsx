@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Metaverse from './pages/Metaverse'
+import Logout from './pages/Logout'
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/metaverse' element={<Metaverse/>}/>
+      <Route path='/logout' element={<Logout/>}/>
     </Routes>
     </>
   )
