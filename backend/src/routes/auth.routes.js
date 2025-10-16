@@ -7,6 +7,7 @@ const router = express.Router();
 
 router.post('/register', validateUser.registerUserValidation, authController.registerUser);
 router.post('/login', validateUser.loginUserValidation, authController.loginUser);
+router.post('/logout', authController.logoutUser);
 router.get('/metaverse', authMiddleware, (req, res) => {
   res.status(200).json({ message: 'Token is valid', user: req.user });
 });

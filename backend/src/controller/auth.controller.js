@@ -37,7 +37,6 @@ async function registerUser(req, res) {
         res.status(500).json({message: 'Server error'});
     }
 }
-
 async function loginUser(req, res) {
     const {username, email, password} = req.body;
     try{
@@ -68,7 +67,21 @@ async function loginUser(req, res) {
     }
 }
 
+async function logoutUser(req, res) {
+    try{
+        if(req.cookies.token){
+            res.clearCookie('token');
+            return res.status(200).json({message: 'Logout successful'});
+        }
+    }
+    catch(error){
+        console.error('Error logging out user:', error);
+        res.status(500).json({message: 'Server error'});
+    }
+}
+
 module.exports = {
     registerUser,
-    loginUser
+    loginUser,
+    logoutUser
 };
