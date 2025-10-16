@@ -10,7 +10,7 @@ const Nav = () => {
             <li className='py-1 px-8 bg-[#000f5279] cursor-pointer hover:bg-[#000F52] rounded-3xl'>Platform</li>
             <li className='py-1 px-8 bg-[#000f5279] cursor-pointer hover:bg-[#000F52] rounded-3xl'>About Us</li>
             <li className='py-1 px-8 bg-[#000F5279] cursor-pointer hover:bg-[#000F52] rounded-3xl'>Services</li>
-            <li className='py-1 px-8 bg-[#000F5279] cursor-pointer hover:bg-[#000F52] rounded-3xl'>Metavers</li>
+            <li className='py-1 px-8 bg-[#000F5279] cursor-pointer hover:bg-[#000F52] rounded-3xl'>Metaverse</li>
             <li className='py-1 px-8 bg-[#000F5279] cursor-pointer hover:bg-[#000F52] rounded-3xl'>Contact</li>
            </ul>
         </div>
