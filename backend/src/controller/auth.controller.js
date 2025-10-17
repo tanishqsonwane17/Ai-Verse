@@ -23,7 +23,8 @@ async function registerUser(req, res) {
        httpOnly: true,         
        secure: false,          
        sameSite: 'lax',      
-       maxAge: 3600000         
+       maxAge: 3600000,
+       path: '/'         
        });
 
        return res.status(201).json({
@@ -58,7 +59,8 @@ async function loginUser(req, res) {
          httpOnly: true,         
          secure: false,          
          sameSite: 'lax',        
-         maxAge: 3600000        
+         maxAge: 3600000,
+         path: '/'        
   });
         return res.status(200).json({
             message: 'Login successful',
@@ -79,10 +81,13 @@ async function loginUser(req, res) {
 
 async function logoutUser(req, res) {
     try{
-        if(req.cookies.token){
-            res.clearCookie('token');
-            return res.status(200).json({message: 'Logout successful'});
-        }
+        res.clearCookie('token', {
+            httpOnly: true,
+            secure: false, 
+            sameSite: 'lax',
+            path: '/' 
+        });
+        return res.status(200).json({message: 'Logout successful'});
     }
     catch(error){
         console.error('Error logging out user:', error);
