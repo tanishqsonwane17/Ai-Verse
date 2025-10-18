@@ -23,7 +23,7 @@ async function registerUser(req, res) {
        httpOnly: true,         
        secure: false,          
        sameSite: 'lax',      
-       maxAge: 3600000,
+       maxAge: 7 * 24 * 60 * 60 * 1000,
        path: '/'         
        });
 
@@ -57,11 +57,11 @@ async function loginUser(req, res) {
         const token = jwt.sign({id:user._id}, process.env.JWT_SECRET, {expiresIn: '1h'})
        res.cookie('token', token, {
          httpOnly: true,         
-         secure: false,          
-         sameSite: 'lax',        
-         maxAge: 3600000,
-         path: '/'        
-  });
+         secure: false,
+         sameSite: 'lax',
+         maxAge: 7 * 24 * 60 * 60 * 1000,
+         path: '/'
+       });
         return res.status(200).json({
             message: 'Login successful',
             user:{

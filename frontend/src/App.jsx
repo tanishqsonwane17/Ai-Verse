@@ -5,6 +5,8 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Metaverse from './pages/Metaverse'
 import Logout from './pages/Logout'
+import ScriptMind from './pages/ai/ScriptMind'
+import AutoCoder from './pages/ai/AutoCoder'
 
 const App = () => {
   return (
@@ -13,6 +15,8 @@ const App = () => {
       <Route path='/' element={<Home/>}/>
       <Route path='/metaverse' element={<Metaverse/>}/>
       <Route path='/logout' element={<Logout/>}/>
+      <Route path='/script-mind' element={<ScriptMind/>}/>
+      <Route path='/auto-coder' element={<AutoCoder/>}/>
     </Routes>
     </>
   )
